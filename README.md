@@ -34,4 +34,4 @@ python3 -m app.main
 
 ## Author
 
-- Sanix-darker (Ange SAADJIO)
+- Sanix-darker

@@ -60,15 +60,23 @@ def main():
     print("[+] List of bills :")
     print("[+] Date, N° Reçu, Montant payé, Mode, Agence, N° Facture, Mois, Montant facturé")
 
+    fetched_list = ""
     for row in rows:
         cells = row.find_all("td")
 
-        line = ""
+        line = "[+] "
         for cell in cells:
             line += ''.join(cell.get_text().split()) + ", "
-
+        line += "-----------------------------------------------------"
+        
         print(line)
-        print("-----------------------------------------------------")
+        fetched_list += line + "\n"
         time.sleep(1)
+    
+    # Saving the bills in a file
+    with open("eneo_bills.txt", "w") as file_:
+        file_.write(fetched_list)
 
-# main()
+
+# if __name__ == "main":
+main()

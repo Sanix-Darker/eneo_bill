@@ -2,7 +2,7 @@ import configparser as ConfigParser
 
 # Configs parameters configParser.get('your-config', 'path1')
 configParser = ConfigParser.RawConfigParser()
-configFilePath = r'eneo_config.txt'
+configFilePath = r'config.txt'
 configParser.read(configFilePath)
 
 # Parameters

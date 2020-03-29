@@ -2,5 +2,3 @@ lxml==3.4.4
 requests==2.7.0
 configparser
 beautifulsoup4
-flask>=0.12.3
-Flask-Cors

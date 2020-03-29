@@ -1,10 +1,20 @@
 # ENEO BILL
+# By Sanix-darker
 import os
 import requests
 from lxml import html
 from bs4 import BeautifulSoup
+import time
 from app.settings import *
 
+
+print("")
+print(" _____ _   _ _____ ___        ____ ___ _     _     ____   ")
+print("| ____| \ | | ____/ _ \      | __ )_ _| |   | |   / ___|  ")
+print("|  _| |  \| |  _|| | | |_____|  _ \| || |   | |   \___ \  ")
+print("| |___| |\  | |__| |_| |_____| |_) | || |___| |___ ___) | ")
+print("|_____|_| \_|_____\___/      |____/___|_____|_____|____/  v0.1 ")
+print(" - - - - - - - - - - - - -  - - - - - - - -- - - - - - - - - -")
 print("[+] ENEO-BILL started!")
 
 session_requests = requests.session()
@@ -39,16 +49,26 @@ def main():
     print("[+] Fetching bills on : ", bill_url)
     # Let's scrap the content
     r = session_requests.get(bill_url, headers=dict(referer=bill_url))
-
+        
     # Let's use beautifullSoup to parse the content
-    soup = BeautifulSoup(r.content, features="lxml")
-    rows = soup.find("table", {"class": "table"}, border=1).find("tbody").find_all("tr")
+    soup = BeautifulSoup(r.text, features="lxml")
 
-    print("[+]List of bills :")
+    # Unpaids : tab_impaye
+    # Bills : tab_paiements
+    rows = soup.find("div", {"id": "tab_paiements"}).find("table").find("tbody").find_all("tr")
+
+    print("[+] List of bills :")
+    print("[+] Date, N° Reçu, Montant payé, Mode, Agence, N° Facture, Mois, Montant facturé")
+
     for row in rows:
         cells = row.find_all("td")
-        the_cell = cells[0].get_text()
 
-        print("[+] >> ", the_cell)
+        line = ""
+        for cell in cells:
+            line += ''.join(cell.get_text().split()) + ", "
 
-main()
+        print(line)
+        print("-----------------------------------------------------")
+        time.sleep(1)
+
+# main()

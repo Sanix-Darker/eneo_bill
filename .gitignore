@@ -2,3 +2,4 @@ config.txt
 __pycache__
 .idea
 .history
+*.html

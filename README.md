@@ -1,3 +1,5 @@
+<img src="./images/logo.png">
+
 # ENEO-BILL
 
 An implementation of a Bot that will fetch available bills on eneocameroon website and use kraken to buy them !

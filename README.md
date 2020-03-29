@@ -4,6 +4,8 @@ An implementation of an autoLogin Bot that will fetch available bills on eneocam
 
 ## DEMO
 
+<img src="./images/demo.gif">
+
 ## Requirements
 
 - Python (3.x recommended)

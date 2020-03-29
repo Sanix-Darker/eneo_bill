@@ -68,13 +68,13 @@ def main():
         line = "[+] "
         for cell in cells:
             line += ''.join(cell.get_text().split()) + ", "
-        line += "\n------------------------------------------------------------"
+        line += "\n----------------------------------------------------------------------"
         
         print(line)
         fetched_list += line + "\n"
         time.sleep(1)
     print("[+] -")
-    
+
     bill_file_name = "eneo_bills_" + str(datetime.now()) + ".txt"
     # Saving the bills in a file
     with open(bill_file_name, "w") as file_:

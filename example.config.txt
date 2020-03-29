@@ -1,1 +1,4 @@
 [eneo-config]
+USERNAME = 6999999
+PASSWORD = --------
+LOGIN_URl = https://my.eneocameroon.cm/login

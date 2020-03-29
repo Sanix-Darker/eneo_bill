@@ -1,6 +1,6 @@
 # ENEO-BILL
 
-An implementation of an autoLogin Bot that will fetch available bills on eneocameroon website !
+An implementation of a Bot that will fetch available bills on eneocameroon website and use kraken to buy them !
 
 ## DEMO
 

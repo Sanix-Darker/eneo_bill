@@ -5,6 +5,7 @@ import requests
 from lxml import html
 from bs4 import BeautifulSoup
 import time
+from datetime import datetime
 from app.settings import *
 
 
@@ -59,7 +60,7 @@ def main():
 
     print("[+] List of bills :")
     print("[+] Date, N° Reçu, Montant payé, Mode, Agence, N° Facture, Mois, Montant facturé")
-
+    print("[+] -")
     fetched_list = ""
     for row in rows:
         cells = row.find_all("td")
@@ -67,16 +68,19 @@ def main():
         line = "[+] "
         for cell in cells:
             line += ''.join(cell.get_text().split()) + ", "
-        line += "-----------------------------------------------------"
+        line += "\n------------------------------------------------------------"
         
         print(line)
         fetched_list += line + "\n"
         time.sleep(1)
+    print("[+] -")
     
+    bill_file_name = "eneo_bills_" + str(datetime.now()) + ".txt"
     # Saving the bills in a file
-    with open("eneo_bills.txt", "w") as file_:
+    with open(bill_file_name, "w") as file_:
         file_.write(fetched_list)
 
+    print("[+] Bills saved in ", bill_file_name)
 
 # if __name__ == "main":
 main()

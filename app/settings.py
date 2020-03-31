@@ -9,3 +9,4 @@ configParser.read(configFilePath)
 USERNAME = configParser.get('eneo-config', 'USERNAME')
 PASSWORD = configParser.get('eneo-config', 'PASSWORD')
 LOGIN_URL = configParser.get('eneo-config', 'LOGIN_URl')
+BILLS_URL = "https://my.eneocameroon.cm/"
